@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffe6eb;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+        }
+        .valentines {
+            position: relative;
+            top: 50px;
+            cursor: pointer;
+            animation: up 3s linear infinite;
+        }
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #f08080;
+        }
+        .envelope:before {
+            background-color: #f08080;
+            content: '';
+            position: absolute;
+            width: 212px;
+            height: 212px;
+            transform: rotate(45deg);
+            top: -105px;
+            left: 44px;
+            border-radius: 30px 0 0 0;
+        }
+        .card {
+            position: absolute;
+            background-color: #ffffff;
+            width: 270px;
+            height: 170px;
+            top: 10px;
+            left: 15px;
+            box-shadow: -5px -5px 100px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            transition: 0.5s;
+            padding: 20px;
+            text-align: center;
+        }
+        .card h2 {
+            font-size: 20px;
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #2d3436;
+            line-height: 1.4;
+        }
+        .front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 150px solid #f4978e;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid #f4978e;
+            top: 0;
+            left: 150px;
+            z-index: 10;
+        }
+        .front:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid #f4978e;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid #f4978e;
+            top: -100px;
+            left: -150px;
+        }
+        .valentines:hover .card {
+            top: -100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="valentines">
+            <div class="envelope"></div>
+            <div class="card">
+                <h2>Happy Wishes! 💖</h2>
+                <p>ဒီစာလေးကို ဖတ်နေရတဲ့သူလေး အမြဲပြုံးရွှင်ပါစေ။ <br> Have a great day! ✨</p>
+            </div>
+            <div class="front"></div>
+        </div>
+    </div>
+</body>
+</html>
