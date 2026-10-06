@@ -3,40 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Postcard For You</title>
+    <title>For You 💌</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f3f8;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            background-color: #ffe6eb;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+        }
+        .valentines {
+            position: relative;
+            top: 50px;
+            cursor: pointer;
+            animation: up 3s linear infinite;
+        }
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #f08080;
+        }
+        .envelope:before {
+            background-color: #f08080;
+            content: '';
+            position: absolute;
+            width: 212px;
+            height: 212px;
+            transform: rotate(45deg);
+            top: -105px;
+            left: 44px;
+            border-radius: 30px 0 0 0;
         }
         .card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: absolute;
+            background-color: #ffffff;
+            width: 270px;
+            height: 170px;
+            top: 10px;
+            left: 15px;
+            box-shadow: -5px -5px 100px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            transition: 0.5s;
+            padding: 20px;
             text-align: center;
-            max-width: 400px;
-            border: 2px solid #ff7b9c;
         }
-        h1 {
-            color: #ff477e;
+        .card h2 {
+            font-size: 20px;
+            color: #d63031;
+            margin-bottom: 10px;
         }
-        p {
-            color: #555;
-            font-size: 18px;
-            line-height: 1.6;
+        .card p {
+            font-size: 14px;
+            color: #2d3436;
+            line-height: 1.4;
+        }
+        .front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 150px solid #f4978e;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid #f4978e;
+            top: 0;
+            left: 150px;
+            z-index: 10;
+        }
+        .front:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid #f4978e;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid #f4978e;
+            top: -100px;
+            left: -150px;
+        }
+        .valentines:hover .card {
+            top: -100px;
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>💌 Happy Wishes!</h1>
-        <p>မင်္ဂလာပါ! ဒါကတော့ GitHub Pages ကနေ အခမဲ့ လွှင့်တင်ထားတဲ့ E-Postcard လေး ဖြစ်ပါတယ်။</p>
+    <div class="container">
+        <div class="valentines">
+            <div class="envelope"></div>
+            <div class="card">
+                <h2>Happy Wishes! 💖</h2>
+                <p>ဒီစာလေးကို ဖတ်နေရတဲ့သူလေး အမြဲပြုံးရွှင်ပါစေ။ <br> Have a great day! ✨</p>
+            </div>
+            <div class="front"></div>
+        </div>
     </div>
 </body>
 </html>
