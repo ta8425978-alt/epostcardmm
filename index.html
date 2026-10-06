@@ -3,108 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You 💌</title>
+    <title>Asking You 💖</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffe6eb;
+            height: 100vh;
+            background-color: #ffe6e9;
             font-family: Arial, sans-serif;
+            text-align: center;
             overflow: hidden;
         }
-        .container {
-            position: relative;
-        }
-        .valentines {
-            position: relative;
-            top: 50px;
-            cursor: pointer;
-            animation: up 3s linear infinite;
-        }
-        .envelope {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            background-color: #f08080;
-        }
-        .envelope:before {
-            background-color: #f08080;
-            content: '';
-            position: absolute;
-            width: 212px;
-            height: 212px;
-            transform: rotate(45deg);
-            top: -105px;
-            left: 44px;
-            border-radius: 30px 0 0 0;
-        }
         .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 350px;
+            width: 90%;
+            position: relative;
+        }
+        .gif {
+            width: 150px;
+            height: 150px;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 22px;
+            margin: 15px 0;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            height: 50px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        #noBtn {
+            background-color: #cccccc;
+            color: #333;
             position: absolute;
-            background-color: #ffffff;
-            width: 270px;
-            height: 170px;
-            top: 10px;
-            left: 15px;
-            box-shadow: -5px -5px 100px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            transition: 0.5s;
-            padding: 20px;
-            text-align: center;
-        }
-        .card h2 {
-            font-size: 20px;
-            color: #d63031;
-            margin-bottom: 10px;
-        }
-        .card p {
-            font-size: 14px;
-            color: #2d3436;
-            line-height: 1.4;
-        }
-        .front {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-right: 150px solid #f4978e;
-            border-top: 100px solid transparent;
-            border-bottom: 100px solid #f4978e;
-            top: 0;
-            left: 150px;
-            z-index: 10;
-        }
-        .front:before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 150px solid #f4978e;
-            border-top: 100px solid transparent;
-            border-bottom: 100px solid #f4978e;
-            top: -100px;
-            left: -150px;
-        }
-        .valentines:hover .card {
-            top: -100px;
+            right: 40px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="valentines">
-            <div class="envelope"></div>
-            <div class="card">
-                <h2>Happy Wishes! 💖</h2>
-                <p>ဒီစာလေးကို ဖတ်နေရတဲ့သူလေး အမြဲပြုံးရွှင်ပါစေ။ <br> Have a great day! ✨</p>
-            </div>
-            <div class="front"></div>
+
+    <div class="card" id="card">
+        <img class="gif" id="emoji" src="https://media.giphy.com/media/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="cute bear">
+        <h1 id="question">ငါတို့ ပြန်တွဲကြမလား? 🥺👉👈</h1>
+        
+        <div class="btn-group">
+            <button id="yesBtn" onclick="acceptProposal()">Yes 💖</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No 💔</button>
         </div>
     </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function acceptProposal() {
+            document.getElementById('question').innerText = "Yay! ပျော်လိုက်တာ 🥰💖✨";
+            document.getElementById('emoji').src = "https://media.giphy.com/media/26hpUre317gEiaq80/giphy.gif";
+            document.querySelector('.btn-group').style.display = 'none';
+        }
+    </script>
+
 </body>
 </html>
